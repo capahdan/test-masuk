@@ -34,7 +34,7 @@
           <td>{{ $user->nim }}</td>
           <td>{{ $user->name}}</td>
           <td>{{ $user->tingkat}}</td>
-          <td>{{ $user->jurusan}}</td>
+          <td>{{ $user->jurusan->jurusan}}</td>
           <td>{{ $user->ip_terakhir}}</td>
           <td>{{ $user->jumlah_sks}}</td>
           <td>{{ $user->status_tinggal}}</td>

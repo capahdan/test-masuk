@@ -1,9 +1,8 @@
 <?php
 
-
+use App\Http\Controllers\JurusanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +24,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('/student',StudentController::class)->middleware('admin');
+Route::resource('/jurusan',JurusanController::class)->middleware('admin');

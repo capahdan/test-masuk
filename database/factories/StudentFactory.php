@@ -20,7 +20,7 @@ class StudentFactory extends Factory
             'nim' => $this->faker->randomNumber(7, true),
             'name' => $this->faker->name(),
             'tingkat'=>mt_rand(1,4),
-            'jurusan'=>$this->faker->jobTitle(),
+            'jurusan_id'=>$this->faker->numberBetween(1,9),
             'ip_terakhir'=>$this->faker->randomFloat(1,2,4),
             'jumlah_sks'=>$this->faker->numberBetween(18,24),
             'status_tinggal'=>$this->faker->state()

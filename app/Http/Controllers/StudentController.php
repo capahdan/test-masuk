@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\Jurusan;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -15,7 +16,8 @@ class StudentController extends Controller
     public function index()
     {
         return view('dashboard.mahasiswa.index',[
-            'users'=>Student::all()
+            'users'=>Student::all(),
+            
         ]);
     }
 
@@ -26,7 +28,9 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('dashboard.mahasiswa.create');
+        return view('dashboard.mahasiswa.create',[
+            'jurusans'=>Jurusan::all()
+        ]);
     }
 
     /**
@@ -42,7 +46,7 @@ class StudentController extends Controller
             'name'=>'required',
             'nim'=>'required',
             'tingkat'=>'required',
-            'jurusan'=>'required',
+            'jurusan_id'=>'required',
             'ip_terakhir'=>'required',
             'jumlah_sks'=>'required',
             'status_tinggal'=>'required'
@@ -52,7 +56,7 @@ class StudentController extends Controller
             'name'=>$request->input('name'),
             'nim'=>$request->input('nim'),
             'tingkat'=>$request->input('tingkat'),
-            'jurusan'=>$request->input('jurusan'),
+            'jurusan_id'=>$request->input('jurusan_id'),
             'ip_terakhir'=>$request->input('ip_terakhir'),
             'jumlah_sks'=>$request->input('jumlah_sks'),
             'status_tinggal'=>$request->input('status_tinggal'),
@@ -82,7 +86,8 @@ class StudentController extends Controller
     public function edit(Student $student)
     {
         return view('dashboard.mahasiswa.edit',[
-            'user'=>$student
+            'user'=>$student,
+            'jurusans'=>Jurusan::all()
         ]);
     }
 
@@ -100,7 +105,7 @@ class StudentController extends Controller
             'name'=>'required',
             'nim'=>'required',
             'tingkat'=>'required',
-            'jurusan'=>'required',
+            'jurusan_id'=>'required',
             'ip_terakhir'=>'required',
             'jumlah_sks'=>'required',
             'status_tinggal'=>'required'
@@ -110,7 +115,7 @@ class StudentController extends Controller
             'name'=>$request->input('name'),
             'nim'=>$request->input('nim'),
             'tingkat'=>$request->input('tingkat'),
-            'jurusan'=>$request->input('jurusan'),
+            'jurusan_id'=>$request->input('jurusan_id'),
             'ip_terakhir'=>$request->input('ip_terakhir'),
             'jumlah_sks'=>$request->input('jumlah_sks'),
             'status_tinggal'=>$request->input('status_tinggal'),

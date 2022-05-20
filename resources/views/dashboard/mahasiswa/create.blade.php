@@ -65,14 +65,19 @@
                     @enderror
         </div>
 
-        <div class="mb-4">
-            <label for="jurusan">Jurusan</label>
-            <input type="text" name="jurusan" class="form-control @error('jurusan')is-invalid @enderror" id="name" placeholder="Jurusan " value="{{ old('jurusan') }}">
-                @error('jurusan')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-                @enderror
+        <div class="mb-2">
+            <label for="jurusan" class="form-label">jurusan</label>
+                <select class="form-select @error('jurusan_id') is-invalid @enderror" name="jurusan_id" id="jurusan">
+    
+                    @foreach ($jurusans as $jurusan)
+                     @if(old('jurusan_id') == $jurusan->id)
+                        <option value="{{ $jurusan->id }}" selected>{{ $jurusan->jurusan }}</option>
+                     @else
+                     <option value="{{ $jurusan->id }}">{{ $jurusan->jurusan }}</option>
+                     @endif
+                    @endforeach
+                </select>  
+                     
         </div>
 
         <div class="mb-2">

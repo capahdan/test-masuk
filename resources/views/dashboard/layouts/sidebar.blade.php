@@ -11,7 +11,14 @@
         <li class="nav-item">
           <a class="nav-link" href="/student">
             <span data-feather="users" class="align-text-bottom"></span>
-            Customers
+            Mahasiswa
+          </a>
+        </li>
+       
+        <li class="nav-item">
+          <a class="nav-link" href="/jurusan">
+            <span data-feather="book" class="align-text-bottom"></span>
+            Jurusan
           </a>
         </li>
         
