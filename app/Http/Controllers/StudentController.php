@@ -16,7 +16,7 @@ class StudentController extends Controller
     public function index()
     {
         return view('dashboard.mahasiswa.index',[
-            'users'=>Student::all(),
+            'users'=>Student::paginate(5)->withQueryString(),
             
         ]);
     }
@@ -72,9 +72,12 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Student $student)
     {
-        //
+        return view('dashboard.mahasiswa.show',[
+            'user'=>$student,
+            'jurusan'=>Jurusan::all()
+        ]);
     }
 
     /**

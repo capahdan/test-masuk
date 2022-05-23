@@ -42,6 +42,7 @@
           
           {{-- <td>{{ $absensi->approved== 0? "Belum Disetujui ":" Sudah Disetujui" }}</td>--}}
           <td>
+            <a href="/student/{{ $user->id }}" class="badge bg-primary"><span data-feather="eye"></span></a>
               <a href="/student/{{ $user->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
               <form action="/student/{{ $user->id }}" method="post" class="d-inline">
                 @method('delete')
@@ -56,4 +57,8 @@
       </tbody>
     </table>
   </div>
+
+  <div class="d-flex justify-content-center">
+    {{ $users->links() }}
+    </div>
 @endsection

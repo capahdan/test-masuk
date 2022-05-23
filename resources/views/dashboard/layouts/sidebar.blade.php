@@ -14,6 +14,12 @@
             Mahasiswa
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/student">
+            <span data-feather="user-plus" class="align-text-bottom"></span>
+           User
+          </a>
+        </li>
        
         <li class="nav-item">
           <a class="nav-link" href="/jurusan">
