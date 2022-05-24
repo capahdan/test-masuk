@@ -1,6 +1,31 @@
 @extends('dashboard.layouts.cinta')
 
 @section('container')
+
+  {{-- {{ dd($users) }} --}}
+  <div class="container">
+    <div class="row justify-content-center">
+      <form action="/student">
+        <div class="col-md-8 d-flex">
+
+        <div class="me-2">
+              <select class="form-select" style="width:13rem" name="kolom" >
+                 <option selected>Pencarian Berdasarkan</option>
+                 <option value="name" {{ (request('kolom')=='name')?'selected':'' }}>Nama</option>
+                 <option value="nim" {{ (request('kolom')=='nim')?'selected':'' }}>Nim</option>
+                 <option value="jurusan" {{ (request('kolom')=='jurusan')?'selected':'' }}>Jurusan</option>
+                 <option value="status_tinggal" {{ (request('kolom')=='status_tinggal')?'selected':'' }}>Tempat Tinggal</option>
+              </select>        
+        </div>
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Recipient's username" name="search" value="{{ request('search') }}">
+            <button class="btn btn-outline-secondary" type="submit" >Button</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Daftar Mahasiswa</h1>
    </div>
@@ -58,7 +83,7 @@
     </table>
   </div>
 
-  <div class="d-flex justify-content-center">
+  {{-- <div class="d-flex justify-content-center">
     {{ $users->links() }}
-    </div>
+    </div> --}}
 @endsection

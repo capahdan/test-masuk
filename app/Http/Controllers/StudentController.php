@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use App\Models\Jurusan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class StudentController extends Controller
 {
@@ -15,8 +17,27 @@ class StudentController extends Controller
      */
     public function index()
     {
+        // $user = DB::table('students')->where('name', 'Tyra');
+
+        $student = Student::latest();
+
+        if(request('search')){
+
+            if(request('kolom')==='jurusan'){
+                $jurusan=Jurusan::all();
+                foreach($jurusan as $jr){
+                    if(request('search') == $jr->jurusan ){
+                        $student->where('jurusan_id',$jr->id );
+                    }
+                }
+            }
+            else{
+                $student->where(request('kolom'), 'like', '%' . request('search') . '%');
+            }
+        }
+
         return view('dashboard.mahasiswa.index',[
-            'users'=>Student::paginate(5)->withQueryString(),
+            'users'=> $student->get()
             
         ]);
     }
